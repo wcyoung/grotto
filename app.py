@@ -28,7 +28,9 @@ def view(path=""):
             "files": os.listdir(file_path)
         }
     else:
-        return os.path.basename(file_path)
+        return {
+            "file_name": os.path.basename(file_path)
+        }
 
 
 if __name__ == "__main__":
