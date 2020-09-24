@@ -1,8 +1,12 @@
 import json
+import os
 
 from flask import Flask
 
 app = Flask(__name__)
+
+with open("config.json") as json_file:
+    CONFIG_DATA = json.load(json_file)
 
 
 @app.route("/")
@@ -10,12 +14,5 @@ def index():
     return "Hello, World!"
 
 
-def create_app():
-    return app
-
-
-def get_config():
-    with open('config.json') as json_file:
-        json_data = json.load(json_file)
-
-    return json_data
+if __name__ == "__main__":
+    app.run(debug=True)
