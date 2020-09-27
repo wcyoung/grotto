@@ -5,6 +5,7 @@ from flask import abort
 from flask import Flask
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 with open("config.json") as json_file:
     CONFIG = json.load(json_file)
